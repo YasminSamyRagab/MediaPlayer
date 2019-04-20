@@ -1,0 +1,58 @@
+﻿<Window x:Class="Wpf_MediaPlayer.MainWindow" Name="media"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf_MediaPlayer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="390" Width="799">
+    <Grid>
+        <MediaElement Grid.Row="1" x:Name="MediaElement1" HorizontalAlignment="Left" Height="249" Margin="13,11,0,0" VerticalAlignment="Top" Width="493" MediaOpened="MediaElement1_MediaOpened" LoadedBehavior="Manual"/>
+
+        <Button x:Name="btn_addtolist" Click="btn_addtolist_Click" Margin="81,316,690,23"  Width="20" Height="20">
+            <Image Source=".\Images\Folder-Generic.png"  ></Image>
+        </Button>
+        <Button x:Name="btn_prev"  HorizontalAlignment="Left" Margin="151,316,0,0" VerticalAlignment="Top" Width="20" Height="20" Click="btn_prev_Click">
+            <Image Source=".\Images\Folder-Generic.png" RenderTransformOrigin="-3.188,0.625"></Image>
+        </Button>
+        <Button x:Name="btn_pause"  HorizontalAlignment="Left" Margin="185,313,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="btn_pause_Click">
+            <Image Source=".\Images\control_pause_blue.png"></Image>
+        </Button>
+        <Button x:Name="btn_play"  HorizontalAlignment="Left" Margin="231,311,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="btn_play_Click">
+            <Image Source=".\Images\control_play_blue.png"></Image>
+        </Button>
+        <Button x:Name="btn_stop"  HorizontalAlignment="Left" Margin="274,313,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="btn_stop_Click">
+            <Image Source=".\Images\control_stop_blue.png"></Image>
+        </Button>
+        <Button x:Name="btn_open"  HorizontalAlignment="Left" Margin="29,316,0,0" VerticalAlignment="Top" Width="20" Height="20" Click="btn_open_Click">
+            <Image Source=".\Images\Folder-Generic.png"></Image>
+        </Button>
+        <Button x:Name="btn_next"  HorizontalAlignment="Left" Margin="316,316,0,0" VerticalAlignment="Top" Width="20" Height="20" Click="btn_next_Click">
+            <Image Source=".\Images/Folder-Generic.png" RenderTransformOrigin="-3.188,0.625"/>
+        </Button>
+        <Slider x:Name="sli_sound" HorizontalAlignment="Left" Margin="651,317,0,0" VerticalAlignment="Top" Width="70" ValueChanged="sli_sound_ValueChanged" Value="{Binding ElementName=MediaElement1, Path=Volume}"/>
+        <ProgressBar x:Name="sli_movie" HorizontalAlignment="Left" Margin="177,288,0,0" VerticalAlignment="Top" Width="590" ValueChanged="sli_movie_ValueChanged" Thumb.DragStarted="sli_movie_DragStarted" Thumb.DragCompleted="sli_movie_DragCompleted" />
+
+        <StatusBarItem Margin="17,269,712,54">
+            <TextBlock Name="lblProgressStatus">00:00:00</TextBlock>
+        </StatusBarItem>
+        <StatusBarItem Margin="81,267,684,53">
+            <TextBlock >/</TextBlock>
+        </StatusBarItem>
+        <StatusBarItem Margin="114,269,609,55">
+            <TextBlock Name="lblTotal" >00:00:00</TextBlock>
+        </StatusBarItem>
+        <StatusBarItem Margin="571,307,156,14">
+            <TextBlock >Volume</TextBlock>
+        </StatusBarItem>
+        <StatusBarItem Margin="624,308,144,14">
+            <TextBlock Name="lblVolume"></TextBlock>
+        </StatusBarItem>
+
+
+        <ListBox Name="listplay" HorizontalAlignment="Left" Height="250" Margin="515,12,0,0" VerticalAlignment="Top" Width="267" MouseDoubleClick="listplay_MouseDoubleClick">
+
+        </ListBox>
+
+    </Grid>
+</Window>
